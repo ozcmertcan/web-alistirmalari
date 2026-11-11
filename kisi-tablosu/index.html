@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./angular.min.js"></script>
+     <script src="./kodlar.js"></script>
+    <title>Pen</title>
+    <style>
+      body{background-color:rgb(255, 242, 200)}
+     table{border-collapse:collapse; width:100%;}
+     th{border:3px solid rgb(229, 205, 130) ; font-size:30px; background-color:rgb(114, 142, 109);color:rgb(21, 55, 13)}
+      td{border:3px solid rgb(229, 205, 130); font-size:25px;color:rgb(21, 55, 13)}
+      input{width:80px}
+      
+    </style>
+  </head>
+  <body ng-app="myApp" ng-controller="myCtrl">
+ <table>
+   <tr>
+     <th style="font-size:10px">SEC</th>
+     <th>ID</th>
+     <th>İSİM</th>
+     <th>SOYİSİM</th>
+     <th>YAŞ</th>
+     <th>MEMLEKET</th>
+   </tr>
+   <tr ng-repeat="x in bilgiler" style="background-color:{{$index == guncellenmekistenenindex ? 'rgb(80, 142, 109)':'rgb(114, 142, 109)'}}">
+     <td><span ng-click="sil($index)" style="width:25px">X</span>/<span ng-click="guncelle(x,$index)">G</span></td>
+     <td>{{x.id}}</td>
+     <td>{{x.ad}}</td>
+     <td>{{x.soyad}}</td>
+     <td>{{x.yas}}</td>
+      <td>{{x.sehir}}</td>
+     
+   </tr>
+ </table>
+    <input type="number" ng-model="aydi" placeholder="id ni gir"><br>
+    <input type="text" ng-model="name" placeholder="adını gir"><br>
+    <input type="text" ng-model="surname" placeholder="soyadını gir"><br>
+    <input type="number" ng-model="age" placeholder="yasini gir"><br>
+    <input type="text" ng-model="city" placeholder="memleketini gir"><br>
+    <button ng-show="guncellenmekistenenindex==-1" ng-click="ekle(aydi,name,surname,age,city)">EKLE</button>
+<button ng-show="guncellenmekistenenindex!=-1" ng-click="update(aydi,name,surname,age,city)">GUNCELLE</button>
+    <button ng-click="iptal(aydi,name,surname,age,city)">İPTAL ET</button>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./angular.min.js"></script>
+    <script src="./kodlar.js"></script>
+    <style>
+      table{border-collapse:collapse; width:100%}
+    th{border:2px solid black;background-color:rgb(53,56,57);color:grey} td{border:2px solid black;font-weight:bold;}
+    </style>
+    <title>Pen</title>
+  </head>
+  <body ng-app="myApp" ng-controller="myCtrl">
+<table>
+  <tr>
+    <th style="font-size:7px">SİL/GUNCELLE/EKLE</th>
+    <th>KİTAP ADI</th>
+    <th>YAZARI</th>
+    <th>SAYFA SAYISI</th>
+  </tr>
+  <tr ng-repeat="x in kitaplar" style="background-color:{{$index == guncellenmekistenenindex ? 'rgb(59,68,75)':'rgb(65,74,76)'}}; color:white">
+  <td><span ng-click="sil($index)">X</span>/<span ng-click="guncelle(x,$index)">&</span></td>
+        <td>{{x.kitapadi}}</td>
+        <td>{{x.yazari}}</td>
+        <td>{{x.sayfasi}}</td>
+  </tr>
+</table>
+    <ul>
+      <li>
+        <input type="text" ng-model="newbook" placeholder="kitap adi gir"></li>
+      <li><input type="text" ng-model="writer" placeholder="yazari gir"></li>
+      <li><input type="number" ng-model="pagenumber" placeholder="sayfa sayisi gir"></li>
+      <button ng-show="guncellenmekistenenindex==-1" ng-click="ekle(newbook,writer,pagenumber)">EKLE</button>
+      <button ng-show="guncellenmekistenenindex!=-1" ng-click="update(newbook,writer,pagenumber)">GUNCELLE</button>
+       <button ng-click="iptalet(newbook,writer,pagenumber)">İPTAL ET</button>
+
+    </ul>
+  </body>
+</html>
+

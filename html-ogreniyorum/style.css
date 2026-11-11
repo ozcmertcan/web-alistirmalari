@@ -1,0 +1,14 @@
+
+     p{font-size:20px;}
+     span{color:black}
+     a{color:red}
+     i{color:rgb(0,100,0)}
+     .kalınsınıf{font-weight:bold;}
+     .kucukli{color:rgb(255, 253, 208);}
+     .bölümpaleti{background-color:#b99d76; border:3px solid rgb(152,118,84)}
+     .girişpaleti{background-color:rgb(0,190,255); padding:5px; border:3px solid rgb(0,150,255)}
+     .girisbackground{ background-color:lightblue;color:black}
+     .table2{border:1px solid black;border-collapse:collapse;width:100%} .th2{background-color:lightgrey;} .td2{border:1px solid black; padding:10px;}
+     .table1{border:1px solid black;border-collapse:collapse;width:100%} .th1{background-color:lightblue;} .td1{border:1px solid black; padding:10px;}
+     #baslik{font-size:30px;} #hangiapp{background-color:lightblue;border:1px solid} 
+     

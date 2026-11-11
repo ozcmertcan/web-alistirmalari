@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>TEKRAR SİTESİ</title>
+    <script src="./angular.min.js"></script>
+    <script src="./Kodlar.js"></script>
+    <style>
+      table{border:2px solid}
+      th,td{
+        border:2px solid lightblue
+      }
+      h1{background-color:lightblue;color:white;}
+      div{background-color:lightblue;font-size:20px}
+      th{font-size:27px}
+    </style>
+  </head>
+  <body ng-app="uygulama" ng-controller="kontrol">
+     <h1>KULLANICI LİSTESİ</h1>
+    <div>TOPLAM KULLANICI SAYISI:{{siteverileri.length}}</div>
+    <div2>
+      <input type="text" ng-model="arama" placeholder="aramak isteginiz kisiyi girin">
+    </div2>
+   <table>
+      <tr>  
+     <th>ID</th>
+     <th>AD</th>
+     <th>E POSTA</th>
+     <th>ŞEHİR</th>
+      </tr>
+
+    <tr ng-repeat="x in siteverileri | filter:arama">
+     <td>{{x.id}}</td>
+      <td>{{x.name}}</td>
+      <td>{{x.email}}</td>
+      <td>{{x.address.city}}</td>
+      <td><button ng-click="silmeistegi(x)">SİL</button></td>
+
+    </tr>
+   </table>
+    <input type="number" ng-model="yeniid" placeholder="İd gir">
+    <input type="text" ng-model="yeniad" placeholder="adını gir">
+    <input type="text" ng-model="yeniposta" placeholder="e postasını gir">
+    <input type="text" ng-model="yenisehir" placeholder="şehirini gir">
+    <button ng-click="kisiekle(yeniid,yeniad,yeniposta,yenisehir)">EKLE</button>
+  </body>
+</html>
